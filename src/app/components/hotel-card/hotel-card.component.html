@@ -1,0 +1,10 @@
+<mat-card class="hotel-card">
+    <mat-card-header>
+        <mat-card-title>{{hotel.name}}</mat-card-title>
+    </mat-card-header>
+        <img mat-card-image src="{{hotel.image}}" />
+    <mat-card-content>
+        <star-rate [rate]="hotel.stars"></star-rate>
+        <div><b>Price per night: </b>{{hotel.price}}$</div>
+    </mat-card-content>
+</mat-card>

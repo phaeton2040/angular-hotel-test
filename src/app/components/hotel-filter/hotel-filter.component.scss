@@ -1,0 +1,31 @@
+:host {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px 40px 0 40px;
+}
+
+mat-form-field {
+    margin-right: 10px;
+}
+
+mat-checkbox {
+    margin-right: 15px;
+}
+
+.filter-label {
+    display: inline-block;
+    margin-right: 15px;
+    margin-left: 15px;
+    font-size: 20px;
+}
+
+@media screen and ( max-width: 820px ) { 
+    .filter-label {
+        display: block;
+        margin: 0 0 10px 0;
+    }
+
+    :host {
+        padding: 20px 20px 0 20px;
+    }
+}

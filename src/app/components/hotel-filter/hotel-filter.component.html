@@ -1,0 +1,20 @@
+<div class="filter-container">
+    <mat-form-field class="name-filter">
+        <input matInput placeholder="Hotel's name" (input)="setInputFilter($event, 'name')">
+    </mat-form-field>
+
+    <mat-form-field class="min-price-filter">
+        <input matInput placeholder="Price from" type="number" (input)="setInputFilter($event, 'priceFrom')">
+    </mat-form-field>
+
+    <mat-form-field class="max-price-filter">
+        <input matInput placeholder="Price to" type="number" (input)="setInputFilter($event, 'priceTo')">
+    </mat-form-field>
+
+    <div class="filter-label">Stars:</div>
+    <mat-checkbox value="1" (change)="setRatingsFilter($event)">1</mat-checkbox>
+    <mat-checkbox value="2" (change)="setRatingsFilter($event)">2</mat-checkbox>
+    <mat-checkbox value="3" (change)="setRatingsFilter($event)">3</mat-checkbox>
+    <mat-checkbox value="4" (change)="setRatingsFilter($event)">4</mat-checkbox>
+    <mat-checkbox value="5" (change)="setRatingsFilter($event)">5</mat-checkbox>
+</div>

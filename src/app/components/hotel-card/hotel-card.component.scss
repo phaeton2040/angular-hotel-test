@@ -1,0 +1,28 @@
+:host {
+    width: 27%;
+    padding-top: 15px;
+    position: relative;
+    margin-right: 20px;
+}
+
+mat-card-header {
+    overflow: hidden;
+}
+
+mat-card-title {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+@media screen and ( max-width: 700px ) { 
+    :host {
+        width: 45%;
+    }
+}
+
+@media screen and ( max-width: 500px ) { 
+    :host {
+        width: 100%;
+    }
+}
