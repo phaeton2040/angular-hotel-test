@@ -1,5 +1,5 @@
 <mat-toolbar>Test hotel app</mat-toolbar>
-<hotel-filter (filterChanged)="onFilterChanged($event)"></hotel-filter>
+<hotel-filter (filterChanged)="onFilterChanged($event)" (sortChanged)="onSortChanged($event)"></hotel-filter>
 <div class="results-label">All results ({{(hotels | async)?.length}})</div>
 <div class="container">
     <hotel-card [hotel]="hotel" *ngFor="let hotel of hotels | async"></hotel-card>

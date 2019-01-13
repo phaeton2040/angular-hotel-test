@@ -1,6 +1,6 @@
 <mat-card class="hotel-card">
     <mat-card-header>
-        <mat-card-title>{{hotel.name}}</mat-card-title>
+        <mat-card-title [title]="hotel.name">{{hotel.name}}</mat-card-title>
     </mat-card-header>
         <img mat-card-image src="{{hotel.image}}" />
     <mat-card-content>

@@ -1,6 +1,7 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { IFilter } from 'src/app/models/filter.interface';
 import * as debounce from 'lodash.debounce';
+import { ISort } from 'src/app/models/sort.interface';
 
 @Component({
     selector: 'hotel-filter',
@@ -10,6 +11,9 @@ import * as debounce from 'lodash.debounce';
 export class HotelFilterComponent {
     @Output()
     public filterChanged: EventEmitter<IFilter> = new EventEmitter();
+
+    @Output()
+    public sortChanged: EventEmitter<ISort> = new EventEmitter();
 
     public filter: IFilter = {
         name: '',
@@ -22,20 +26,26 @@ export class HotelFilterComponent {
         debounce(() => {
             this.filter[fieldName] = event.target.value;
             this.filterChanged.emit(this.filter);
-        }, 1000, {trailing: true})();
+        }, 500, {trailing: true})();
     }
 
     setRatingsFilter(event): void {
         const value = parseInt(event.source.value, 10);
 
-        if (!event.checked) {
-            const valueIdx = this.filter.ratings.indexOf(value);
+        debounce(() => {
+            if (!event.checked) {
+                const valueIdx = this.filter.ratings.indexOf(value);
 
-            this.filter.ratings.splice(valueIdx, 1);
-        } else {
-            this.filter.ratings.push(value);
-        }
+                this.filter.ratings.splice(valueIdx, 1);
+            } else {
+                this.filter.ratings.push(value);
+            }
 
-        this.filterChanged.emit(this.filter);
+            this.filterChanged.emit(this.filter);
+        }, 500)();
+    }
+
+    setSorting(value: ISort): void {
+        this.sortChanged.emit(value);
     }
 }

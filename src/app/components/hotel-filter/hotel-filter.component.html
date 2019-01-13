@@ -17,4 +17,21 @@
     <mat-checkbox value="3" (change)="setRatingsFilter($event)">3</mat-checkbox>
     <mat-checkbox value="4" (change)="setRatingsFilter($event)">4</mat-checkbox>
     <mat-checkbox value="5" (change)="setRatingsFilter($event)">5</mat-checkbox>
+
+    <mat-form-field>
+        <mat-select placeholder="Choose sorting" (selectionChange)="setSorting($event.value)">
+            <mat-option [value]="{field: 'price', direction: 1}">
+                Price ascending
+            </mat-option>
+            <mat-option [value]="{field: 'price', direction: -1}">
+                Price descending
+            </mat-option>
+            <mat-option [value]="{field: 'stars', direction: 1}">
+                Stars ascending
+            </mat-option>
+            <mat-option [value]="{field: 'stars', direction: -1}">
+                Stars descending
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
 </div>

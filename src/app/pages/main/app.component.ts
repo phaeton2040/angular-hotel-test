@@ -3,6 +3,7 @@ import { DataService } from 'src/app/services/data.service';
 import { Observable } from 'rxjs';
 import { Hotel } from 'src/app/models/Hotel';
 import { IFilter } from 'src/app/models/filter.interface';
+import { ISort } from 'src/app/models/sort.interface';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,8 @@ import { IFilter } from 'src/app/models/filter.interface';
 })
 export class AppComponent implements OnInit {
   hotels: Observable<Hotel[]>;
+  filter: IFilter;
+  sort: ISort;
 
   constructor(private _dataService: DataService) {}
 
@@ -19,6 +22,12 @@ export class AppComponent implements OnInit {
   }
 
   onFilterChanged(filter: IFilter): void {
-    this.hotels = this._dataService.getHotels(filter);
+    this.filter = filter;
+    this.hotels = this._dataService.getHotels(this.filter, this.sort);
+  }
+
+  onSortChanged(sort: ISort): void {
+    this.sort = sort;
+    this.hotels = this._dataService.getHotels(this.filter, this.sort);
   }
 }
