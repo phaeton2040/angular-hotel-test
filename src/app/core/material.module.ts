@@ -16,4 +16,4 @@ import { NgModule } from '@angular/core';
         MatSelectModule
     ]
 })
-export class CoreModule {}
+export class MaterialImportModule {}

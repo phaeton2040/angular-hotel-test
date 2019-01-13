@@ -1,3 +1,4 @@
+// tslint:disable
 const hotels = [
     {
         name: 'Saint-Petersburg Hotel',

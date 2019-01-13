@@ -11,7 +11,6 @@ export class DataService {
 
     constructor() {
         this._hotels = hotels.map(h => new Hotel(h));
-        console.log('data service created');
     }
 
     public getHotels(filter: IFilter = {}, sort: ISort = {field: 'price', direction: 1}): Observable<Hotel[]> {
